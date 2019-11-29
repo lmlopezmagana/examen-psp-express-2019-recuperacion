@@ -9,3 +9,5 @@ No olvides instalar los paquetes necesarios antes de realizar la primera ejecuci
 ```bash
 npm install
 ```
+
+Este código se basa en el ejemplo realizado por David Poza en [https://github.com/davidpoza/passport-jwt-example](https://github.com/davidpoza/passport-jwt-example)
