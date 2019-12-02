@@ -13,6 +13,7 @@ const user_routes = require('./routes/users');
 const ticket_routes = require('./routes/tickets');
 const middleware = require('./middleware/index'); 
 const UserService = require('./services/user')
+require('dotenv').config();
 
 passport.use(new LocalStrategy((username, password, done) => {
     let busqueda = (username.includes('@')) ? { email: username } : { username: username };
