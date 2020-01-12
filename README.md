@@ -1,6 +1,6 @@
-# examen-psp-express-2019
+# examen-psp-express-2019-recuperacion
 
-Código base para el examen de incidencias Node.js y Express.js de Diciembre de 2019
+Código base para el examen de recuperación Node.js y Express.js de Enero de 2020
 
 El enunciado del examen está disponible en el aula virtual.
 

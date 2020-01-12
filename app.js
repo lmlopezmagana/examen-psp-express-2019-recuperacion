@@ -10,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const bcrypt = require('bcryptjs');
 const user_routes = require('./routes/users');
-const ticket_routes = require('./routes/tickets');
+const tasks_routes = require('./routes/tasks');
 const middleware = require('./middleware/index'); 
 const UserService = require('./services/user')
 require('dotenv').config();
@@ -46,7 +46,7 @@ app.use(cookieParser())
 app.use(passport.initialize())
 
 app.use('/api/', user_routes);
-app.use('/api/tickets/', ticket_routes);
+app.use('/api/tasks/', tasks_routes);
 app.use(middleware.errorHandler);
 app.use(middleware.notFoundHandler);
 

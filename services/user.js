@@ -10,7 +10,7 @@ const users = [
         username: "luismi",
         email: "luismi.lopez@salesianos.edu",
         fullname: "Luis Miguel López Magaña",
-        roles: [ "INFORMADOR", "TECNICO"],
+        roles: [ "USER" ],
         password: bcrypt.hashSync("12345", parseInt(process.env.BCRYPT_ROUNDS))
     },
     {
@@ -18,14 +18,14 @@ const users = [
         username: "miguel",
         email: "miguel.campos@salesianos.edu",
         fullname: "Miguel Campos Rivera",
-        roles: [ "INFORMADOR", "TECNICO"],
+        roles: [ "USER" ],
         password: bcrypt.hashSync("67890", parseInt(process.env.BCRYPT_ROUNDS))   
     },
     {
         id: 3,
         username: "angel",
         email: "angel.naranjo@salesianos.edu",
-        roles: ["INFORMADOR"],
+        roles: ["USER", "ADMIN"],
         password: bcrypt.hashSync("lasnavaspuntocom", parseInt(process.env.BCRYPT_ROUNDS))   
     },
     {
@@ -33,7 +33,7 @@ const users = [
         username: "rafa",
         email: "rafael.villar@salesianos.edu",
         fullname: "Rafael Villar Liñán",
-        roles: [ "INFORMADOR", "TECNICO"],
+        roles: [ "USER" ],
         password: bcrypt.hashSync("pataitaporbuleria", parseInt(process.env.BCRYPT_ROUNDS))   
     },
     {
@@ -41,7 +41,7 @@ const users = [
         username: "jesus",
         email: "jesus.casanova@salesianos.edu",
         fullname: "Jesús Casanova Domínguez",
-        roles: ["INFORMADOR"],
+        roles: ["USER"],
         password: bcrypt.hashSync("vivalavirgendelvalle", parseInt(process.env.BCRYPT_ROUNDS))   
     }
 
@@ -61,18 +61,14 @@ let service = {
     findByRol: (rol) => {
         return _.filter(users, u => _.includes(u.roles, rol));
     },
-    randomRepairman: function() {
-        const repairmans = this.findByRol("TECNICO");        
-        return repairmans[_.random(0,repairmans.length-1)];
-    },
     insertUser : (user) => {
-        return users.push({
-            id: users.length,
+        users.push({
+            id: users.length+1,
             email: user.email,
-            fullname: user.fullname,
             username: user.username,
             password: user.password
         });
+        return users[users.length-1];
     }
 }
 
