@@ -13,13 +13,15 @@ let controller = {
         if (resultado != undefined) {
             next(new error_types.InfoError("user already exists"));
         } else {
+            // console.log(req.file)
             let hash = bcrypt.hashSync(req.body.password, parseInt(process.env.BCRYPT_ROUNDS));
             let inserted = UserService.insertUser({
                 email: req.body.email,
                 username: req.body.username,
-                password: hash
+                password: hash,
+                avatar: req.file.filename
             })
-            res.json(inserted)
+            res.status(201).json(inserted)
         }
     }
     ,
